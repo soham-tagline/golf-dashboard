@@ -1,0 +1,40 @@
+<h2 class="card-title">Problematic Booking Systems</h2>
+<div class="overflow-x-auto">
+    <table class="min-w-full table-auto border-collapse border border-gray-200">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-2 text-left border border-gray-300">Booking System</th>
+          <th class="px-4 py-2 text-left border border-gray-300">Number of Errors</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @data.each do |booking_system, count| %>
+          <tr>
+            <td class="px-4 py-2 border border-gray-300"><%= booking_system.presence || "Unknown" %></td>
+            <td class="px-4 py-2 border border-gray-300"><%= count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+<div class="card p-4 shadow rounded-xl">
+  <h2 class="text-xl font-semibold mb-4">Scraper Latency by Booking System</h2>
+  <table class="w-full table-auto border-collapse">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="text-left p-2 border-b">Booking System</th>
+        <th class="text-left p-2 border-b">Average Scrape Duration (seconds)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @average_durations.each do |booking_system, avg_duration| %>
+        <tr>
+          <td class="p-2 border-b"><%= booking_system.presence || "Unknown" %></td>
+          <td class="p-2 border-b"><%= avg_duration.round(2) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

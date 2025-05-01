@@ -1,0 +1,55 @@
+<%# app/views/problematic_courses/index.html.erb %>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">Most Problematic Courses</h2>
+    <p class="card-description">Courses with the highest error rates</p>
+  </div>
+  <div class="card-content">
+    <div class="overflow-x-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="w-[200px]">Course Name</th>
+            <th class="text-right">Error Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @problematic_courses.each do |course| %>
+            <tr>
+              <td><%= course.course_name %></td>
+              <td class="text-right"><%= course.error_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%# app/views/scraper_latency/by_course.html.erb %>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">Scraper Latency by Course</h2>
+    <p class="card-description">Average scrape duration in seconds</p>
+  </div>
+  <div class="card-content">
+    <div class="overflow-x-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="w-[200px]">Course Name</th>
+            <th class="text-right">Avg Duration (seconds)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @latency_data.each do |course| %>
+            <tr>
+              <td><%= course.course_name %></td>
+              <td class="text-right"><%= number_with_precision(course.avg_duration_seconds, precision: 2) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

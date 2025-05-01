@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   root 'overviews#analytics'
 
   get 'overview/analytics', to: 'overviews#analytics'
+  get 'course/analytics', to: 'courses#analytics'
+  get 'booking_system/analytics', to: 'booking_systems#analytics'
 end
