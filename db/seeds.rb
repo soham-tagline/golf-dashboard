@@ -32,8 +32,8 @@ end
 courses = Course.all
 
 puts "Creating scrape events..."
-10.times do
-  start_time = Faker::Time.between(from: 1.month.ago, to: Time.current)
+50.times do
+  start_time = Faker::Time.between(from: 6.month.ago, to: Time.current)
   scrape_event = ScrapeEvent.create!(
     course: courses.sample,
     scrape_start: start_time,
